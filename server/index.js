@@ -42,6 +42,19 @@ app.post('/api/movieReviews', (req,res)=>{
     });
 })
 
+app.put('/api/movieReviews', (req,res)=>{
+    
+    const movieId = req.body.movieId;
+    const movieName = req.body.movieName;
+    const movieReview = req.body.movieReview;
+
+    const sqlUpdate = "UPDATE movie_reviews set movie_name=?, movie_review=? where id=?";
+    db.query(sqlUpdate, [movieName, movieReview, movieId], (err, result)=> {
+        console.log(result);
+        res.send(result);
+    });
+})
+
 app.delete('/api/movieReviews/:id', (req,res)=>{
     const id = req.params.id;
     const sqlDelete = "DELETE from movie_reviews where id=?";
