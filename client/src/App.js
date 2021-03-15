@@ -52,7 +52,7 @@ function App() {
           setMovieReviewsList([...updatedMovieReviewsList]);
           setMovieName('');
           setReview('');
-          setMovieReviewId('')
+          setMovieReviewId('');
           alert("Review Updated");
       });
     }
@@ -70,6 +70,12 @@ function App() {
     //alert(data)
     Axios.delete("http://localhost:3001/api/movieReviews/"+data);
     setMovieReviewsList([...movieReviewsList.filter(x => x.id !== data)]);
+  }
+
+  const resetReview = ()=>{
+    setMovieName('');
+    setReview('');
+    setMovieReviewId('');
   }
 
   return (
@@ -90,8 +96,10 @@ function App() {
         <input type="hidden" name="movieReviewId" value={movieReviewId} onChange={(e)=> {
           setMovieReviewId(e.target.value)
         }} />
-        
-        <button onClick={submitReview}>Submit</button>
+        <div className="buttons" >
+          <button onClick={submitReview}>Submit</button>&nbsp;&nbsp;&nbsp;
+          <button onClick={resetReview}>Reset</button>
+        </div>
         {movieReviewsList.map((val)=>{
           return (
             <div className='card'>
