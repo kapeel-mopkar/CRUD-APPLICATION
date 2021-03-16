@@ -47,8 +47,8 @@ function MovieReviews(){
           // setReview('');
           const elementsIndex = movieReviewsList.findIndex(element => element.id == movieReviewId );
           let updatedMovieReviewsList = [...movieReviewsList]
-          updatedMovieReviewsList[elementsIndex] = {...updatedMovieReviewsList[elementsIndex], movie_name: movieName}
-          updatedMovieReviewsList[elementsIndex] = {...updatedMovieReviewsList[elementsIndex], movie_review: review}
+          updatedMovieReviewsList[elementsIndex] = {...updatedMovieReviewsList[elementsIndex], movie_name: movieName};
+          updatedMovieReviewsList[elementsIndex] = {...updatedMovieReviewsList[elementsIndex], movie_review: review};
           setMovieReviewsList([...updatedMovieReviewsList]);
           setMovieName('');
           setReview('');
